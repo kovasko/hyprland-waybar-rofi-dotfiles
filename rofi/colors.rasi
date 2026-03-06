@@ -1,7 +1,7 @@
 * {
     background:     rgb(17, 18, 29, 0.8);
-  /*  background-alt: #3E4752; */
-    background-alt: #162038;
+    background-alt:     rgb(17, 18, 29, 0.0);
+   /* background-alt: #162038; */
     foreground:     #FFFFFF;
     selected:       #18CBEF;
     active:         #18CBEF;

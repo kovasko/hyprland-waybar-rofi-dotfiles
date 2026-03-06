@@ -1,117 +1,95 @@
 @theme "/dev/null"
 
 * {
+    /* Définition des couleurs avec transparence */
+    bg: rgba(17, 18, 29, 0.6);
+    bg-alt: rgba(62, 71, 89, 0.6);
+    fg: rgba(255, 255, 255, 0.6);
+    fg-alt: #787c99;
 
-/*	bg: #11121d; 
-	bg-alt: #3E4759;
-
-	fg: #FFFFFF;
-	fg-alt: #787c99;
- */
-
-	bg: rgba(17, 18, 29, 0.6);
-	bg-alt: rgba(62, 71, 89, 0.6);
-	fg: rgba(255, 255, 255, 0.6);
-	fg-alt: #787c99;
-
-	background-color: @bg;
-	
-	border: 0;
-	margin: 0;
-	padding: 0;
-	spacing: 0;
+    background-color: transparent;
+    
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
 }
 
 configuration {
-	show-icons: true;
-	location: 0;
-	font: "JetBrainsMono Nerd Font 12";	
-	display-drun: "Search: ";
+    show-icons: true;
+    location: 0;
+    font: "JetBrainsMono Nerd Font 12";    
+    display-drun: "Search: ";
 }
 
 window {
-  border-radius: 12px;
-  width: 50%;
-  transparency: "real";
-  orientation: vertical;
-  border-width: 2px;
-  border-color: #ffffff30;
-
-  background-color: rgba(17, 18, 29, 0.85);  // fond unique plus propre
+    width: 50%;
+    border-radius: 12px;
+    transparency: "real";
+    orientation: vertical;
+    border-width: 2px;
+    border-color: #ffffff30;
+    background-color: rgba(17, 18, 29, 0.85); 
 }
 
 mainbox {
-  children: [inputbar, listview];
-  background-color: transparent;
+    children: [inputbar, listview];
+    background-color: transparent;
 }
+
+/* --- BARRE DE RECHERCHE --- */
 
 inputbar {
-  background-color: transparent;
-  border-radius: 12px;
+    children: [prompt, entry];
+    background-color: transparent;
+    border-radius: 12px;
 } 
 
-listview {
-  columns: 2;
-  lines: 9;
-  padding: 12;
-  fixed-height: false;
-  fixed-columns: true;
-  fixed-lines: true;
-  border: 0;
-  background-color: transparent;
+prompt {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 15 6 0 15;
 }
 
-// ELEMENT
-// -----------------------------------
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 15 10 0 0;
+}
+
+/* --- LISTE DES APPLICATIONS --- */
+
+listview {
+    columns: 2;
+    lines: 15;
+    padding: 15 15;
+    fixed-height: false;
+    fixed-columns: true;
+    fixed-lines: true;
+    border: 0;
+    background-color: transparent;
+}
 
 element {
-  padding: 10;
-  text-color: @fg-alt;
-  background-color: transparent;
+    padding: 10;
+    text-color: @fg-alt;
+    background-color: transparent;
+    border-radius: 12px;
 }
 
 element selected {
-  text-color: @bg;
- /* background-color: #6d739c; */
-  background-color: #18CBEF;
-  border-radius: 12px;
+    text-color: #11121d; /* Utilisation de @bg ou couleur foncée pour le contraste */
+    background-color: #18CBEF;
 }
 
 element-text {
-	background-color: inherit;
-	text-color: inherit;
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
 }
 
 element-icon {
-	size: 25 px;
-	background-color: inherit;
-	padding: 0 6 0 0;
-	alignment: vertical;
-}
-
-listview {
-	columns: 2;
-	lines: 9;
-	padding: 18 10;
-	fixed-height: false;
-	fixed-columns: true;
-	fixed-lines: true;
-	border: 0 10 6 10;
-}
-
-// INPUT BAR 
-//------------------------------------------------
-
-entry {
-	text-color: @fg ;
-	padding: 10 10 0 0;
-	margin: 0 -2 0 0;
-}
-
-
-prompt {
-  text-color: @fg ;
-  padding: 10 6 0 10;
-  margin: 0 -2 0 0;
-
+    size: 25px;
+    background-color: inherit;
+    padding: 0 10 0 0;
 }
