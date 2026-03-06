@@ -1,0 +1,158 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 44,
+  "spacing": 2,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": [
+	  "custom/launcher",
+	  "hyprland/workspaces",
+	  "custom/cava",
+	  "custom/notification",
+	  "hyprland/window"
+  ],
+  "modules-center": ["mpris"],
+  "modules-right": [
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "tray",
+    "bluetooth",
+    "clock",
+    "clock#simpleclock",
+    "battery",
+    "custom/power"
+  ],
+
+  "custom/launcher": {
+      "tooltip": false, 
+      "on-click": "rofi -show drun",
+      "format": ""
+  },
+
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "max-length": 20
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{id}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 20
+  },
+
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+  "clock#simpleclock": {
+    "tooltip": false,
+    "format": " {:%H:%M}"
+  },
+  "clock": {
+    "format": " {:L%a %d %b}",
+    "calendar": {
+      "format": {
+        "days": "<span weight='normal'>{}</span>",
+        "months": "<span color='#cdd6f4'><b>{}</b></span>",
+        "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>"
+      },
+      "mode": "month",
+      "mode-mon-col": 1,
+      "on-scroll": 1
+    },
+    "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true,
+    "interval": 1
+  },
+  "memory": {
+    "format": " {used:0.1f}Gi"
+  },
+  "pulseaudio": {
+    "format": "{icon}{volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+	    "headphone": "",
+	    "default": [" ", " ", " "]
+	    },
+    "on-click": "pavucontrol"
+    
+  },
+
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "$HOME/.config/rofi/scripts/powermenu.sh",
+    "format": "⏻"
+  },
+ 
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/cava.sh"
+  },
+
+  "custom/notification": {
+    "escape": true,
+    "exec": "swaync-client -swb",
+    "exec-if": "which swaync-client",
+    "format": "{icon}",
+    "format-icons": {
+      "none": "󰅺",
+      "notification": "󰡟"
+    },
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "return-type": "json",
+    "tooltip": false
+  },
+
+  "network": {
+    "interface": "wlp3s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ",
+    "max-length": 50,
+    "on-click": "$HOME/.config/waybar/scripts/rofi-wifi-menu.sh"
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected" : " {device-alias}",
+    "tooltip": true,
+    "on-click": "blueberry"
+  },
+ "battery": {
+   "states": {
+      	"warning": 30,
+       	"critical": 15
+      },
+       	"format": "{icon} {capacity}%",
+       	"format-charging": " {capacity}%",
+       	"format-plugged": "{capacity}%",
+       	"format-alt": "{time} {icon}",
+       	"format-full": " {capacity}%",
+	"format-icons": ["", "", "", "", ""]	
+	}
+}
